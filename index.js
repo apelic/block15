@@ -1,14 +1,26 @@
-/*Can you live serve the HTML file?
-Is the HTML file connected to the JS file?
-Can you prompt the user for froyo flavors and store their result?
-Can you parse the user input into an array of froyo flavors?
-Can you build an object to track which flavors you have observed so far?
-As you iterate through the array of flavors, when should that object be updated?
-Is your logic organized into a function?
-
-*/
 
 
-let flavors = window.prompt("Enter your falvors below")
+let order = window.prompt("Choose between vanilla, coffee, strawberry, or chocolate. Enter your flavors below:","vanilla, vanilla, strawberry, etc.");
 
-console.log(flavors)
+console.log(order);
+
+
+
+const flavors = order.split(",");
+
+console.log(flavors);
+
+const trimmedFlavors = flavors.map(flavor => flavor.trim());
+
+console.log(trimmedFlavors);
+
+
+
+const groupFlavors = trimmedFlavors.reduce((acc, flavor) => {
+    acc[flavor] = (acc[flavor] || 0) + 1;
+    return acc;
+}, {});
+
+console.table(groupFlavors); 
+
+
